@@ -1,0 +1,24 @@
+C++ COMMENTS
+
+statements that are not executed by the compiler
+used to provide explanation of the code, variable, method or class
+
+are two types of comments in C++.
+
+Single Line comment (//)
+Multi Line comment (/∗ ..... ∗/)
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+/* Multiline
+comment */   
+ int x = 16;   // x is a variable    
+ cout<<x<<"\n";         
+}  
+
+
+
+
+

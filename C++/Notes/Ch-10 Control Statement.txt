@@ -1,0 +1,60 @@
+C++ CONTROL STATEMENTS
+
+if statement is used to test the condition. There are various types of if statements in C++.
+
+if statement( It is executed if condition is true)
+if(condition){    
+//code to be executed    
+}  
+
+if-else statement( It executes if block if condition is true otherwise else block is executed)
+if(condition){    
+//code if condition is true    
+}else{    
+//code if condition is false    
+}   
+
+nested if statement( A nested if in C is an if statement that is the target of another if statement. Nested if statements mean an if statement inside another if statement)
+if (condition1) 
+{
+   // Executes when condition1 is true
+   if (condition2) 
+   {
+      // Executes when condition2 is true
+   }
+}
+
+if-else-if ladder( if-else-if ladder statement executes one condition from multiple statements)
+if(condition1){    
+//code to be executed if condition1 is true    
+}else if(condition2){    
+//code to be executed if condition2 is true    
+}    
+else if(condition3){    
+//code to be executed if condition3 is true    
+}    
+...    
+else{    
+//code to be executed if all the conditions are false    
+}    
+
+C++ switch
+The C++ switch statement executes one statement from multiple conditions.
+
+switch(expression){      
+case value1:      
+ //code to be executed;      
+ break;    
+case value2:      
+ //code to be executed;      
+ break;    
+......      
+      
+default:       
+ //code to be executed if all cases are not matched;      
+ break;    
+}    
+
+
+
+

@@ -1,0 +1,62 @@
+Variable
+A variable is a name of memory location( container). It is a way to represent memory location through symbol so that it can be easily identified. Its value can be changed and it can be reused many times.
+
+type variable_name;   
+
+int age;    
+float marks;    
+char a;  
+
+Rules for defining variables
+A variable name can contain alphabets, digits and underscore but variable name can start with alphabet and underscore only. It can't start with digit.
+No white space is allowed within variable name.
+A variable name must not be any reserved word or keyword e.g. char, float etc.
+
+
+
+1. Local Variables
+Local variables are declared inside the function
+it must be declared before they have used in the program
+
+int main()
+{
+   int x = 2; //local variable
+}
+
+2. Global Variables
+Global variables are declared outside the functions. Any functions i.e. both local function and global function can change the value of global variables.
+
+int y = 10; //global variable
+int main()
+{
+   int x = 5; //local variable
+}
+
+3. Static Variables
+These variables are declared with the word static.
+
+int main()
+{
+   int x = 5; //local variable
+   static y = 2; //static variable
+}
+
+4. Automatic Variables
+Automatic variables are declared with the auto keyword. All the variables that are declared inside the functions are default considered as an automatic variable.
+
+int main()
+{
+   int x = 20; //local variable (Automatic variable)
+   auto int y = 12; //automatic variable
+}
+
+5. External Variables
+By using the extern keyword, external variables are declared.
+
+extern int x=1;//external variable (also global) 
+
+#include "myfile.cpp"  
+#include <iostream>  
+void printValue(){  
+    cout<<x;  
+}

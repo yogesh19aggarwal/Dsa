@@ -1,0 +1,59 @@
+Arrays
+Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+
+To create an array, define the data type (like int) and specify the name of the array followed by square brackets [].
+
+To insert values to it, use a comma-separated list, inside curly braces:
+
+int myNum[] = {2, 5, 10, 15, 20};
+
+// Declare an array of four integers:
+int myNum[5];
+
+// Add elements
+myNum[0] = 2;
+myNum[1] = 5;
+myNum[2] = 10;
+myNum[3] = 15;
+myNum[4] = 20;
+
+To access an array element, refer to its index number.
+Array indexes start with 0.
+
+int myNum[] = {2, 5, 10, 15, 20};
+cout << myNum[0];
+
+// Outputs 2
+
+array of arrays are known as multidimensional arrays.
+
+  float x[3][4];
+Here, x is a two-dimensional (2d) array. The array can hold 12 elements. The array as a table with 3 rows and each row has 4 columns.
+
+int a[3][4] = {  
+   {0, 1, 2, 3} ,   /*  initializers for row indexed by 0 */
+   {4, 5, 6, 7} ,   /*  initializers for row indexed by 1 */
+   {8, 9, 10, 11}   /*  initializers for row indexed by 2 */
+};
+
+int a[3][4] = {0,1,2,3,4,5,6,7,8,9,10,11};
+
+
+for(int i = 0; i < 3; i++) {
+  for(int j = 0; j < 4; j++) {
+    cout << a[i][j];
+  }
+}
+
+
+Advantages of the Array
+For any reason a user wishes to store multiple values of similar type then the Array can be used and utilized efficiently.
+
+In an array, accessing an element is very easy by using the index number.
+
+The search process can be applied to an array easily.
+
+2D Array is used to represent matrices.
+
+Disadvantages of the Array
+The array is static, which means its size is always fixed. The memory which is allocated to it cannot be increased or decreased.

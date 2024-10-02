@@ -1,0 +1,28 @@
+C++ Data Types
+A data type specifies the type of data that a variable can store such as integer, floating, character etc.
+
+Types			Data Types
+Basic Data Type		int, char, float, double, etc
+Derived Data Type		array, pointer, etc
+Enumeration Data Type	enum
+User Defined Data Type	structure
+
+Data Types		Memory Size	
+char			1 byte	
+signed char		1 byte	
+unsigned char		1 byte	
+short			2 byte	
+signed short		2 byte	
+unsigned short		2 byte	
+int			2 byte	
+signed int			2 byte	
+unsigned int		2 byte	
+short int			2 byte	
+signed short int		2 byte	
+unsigned short int		2 byte	
+long int			4 byte
+signed long int		4 byte
+unsigned long int		4 byte
+float			4 byte
+double			8 byte
+long double		10 byte

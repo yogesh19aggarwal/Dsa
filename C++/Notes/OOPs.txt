@@ -1,0 +1,1063 @@
+Object oriented programming is a way of solving complex problems by breaking them into smaller problems using objects. Before Object 
+Oriented Programming (commonly referred as OOP), programs were written in procedural language, they were nothing but a long list of 
+instructions. On the other hand, the OOP is all about creating objects that can interact with each other, this makes it easier to 
+develop programs in OOP as we can understand the relationship between them.
+
+Class and Objects
+A class is like a blueprint of data member and functions and object is an instance of class.
+//Class name is Car
+class Car
+{
+    //Data members
+    char name[20];
+    int speed;
+    int weight;
+public:
+    //Functions
+    void brake(){
+    }
+    void slowDown(){
+    }
+}; 
+int main()
+{
+   //ford is an object
+   Car ford; 
+}
+Constructors in C++
+Constructor is a special member function of a class that initializes the object of the class. Constructor name is same as class name and it doesn’t have a return type.
+#include <iostream>
+using namespace std;
+class Demo{
+public:
+   int num;
+   char ch;
+   Demo() {
+      num = 100; ch = 'A';
+   }
+};
+int main(){
+ 
+   Demo obj;
+   cout<<"num: "<<obj.num<<endl;
+   cout<<"ch: "<<obj.ch;
+   return 0;
+}
+
+Constructor vs Member function
+
+a constructor is different from member function of the class.
+1) Constructor doesn’t have a return type. Member function has a return type.
+2) Constructor is automatically called when we create the object of the class. Member function needs to be called explicitly using object of class.
+3) When we do not create any constructor in our class, C++ compiler generates a default constructor and insert it into our code. The same does not apply to member functions.
+
+Types of Constructor in C++
+
+There are three types of constructor in C++. 
+1) Default constructor 
+2) Non-Parameterized constructor
+3) Parameterized constructor
+
+1) Default Constructor
+A default constructor doesn’t have any arguments (or parameters)
+
+#include <iostream>
+using namespace std;
+class Demo{
+public:
+   //Default constructor
+   /*Demo() {
+     * 
+   }*/
+};
+int main(void){
+   /*creating two objects of class Demo.
+    * This means that the default constructor
+    * should have been invoked twice.
+    */
+   Demo obj1;
+   Demo obj2;
+   return 0;
+}
+
+When you don’t specify any constructor in the class, a default constructor with no code (empty body) would be inserted into your code by compiler.
+
+2. NON_PARAMETERIZED CONSTRUCTOR
+#include <iostream>
+using namespace std;
+class Demo{
+public:
+   //Non-Parameterized constructor
+   Demo() {
+      cout<<"Demo Non-para Constructor"<<endl;
+   }
+};
+int main(void){
+   /*creating two objects of class Demo.
+    * This means that the default constructor
+    * should have been invoked twice.
+    */
+   Demo obj1;
+   Demo obj2;
+   return 0;
+}
+
+3. Parameterized Constructor
+#include <iostream>
+using namespace std;
+class Add{
+public:
+   //Parameterized constructor
+   Add(int num1, int num2) {
+     cout<<(num1+num2)<<endl;
+   }
+};
+int main(void){
+   /* One way of creating object. Also known as implicit call to the constructor*/
+   Add obj1(10, 20);
+   /* Another way of creating object. This is known as explicit calling the constructor.*/
+   Add obj2 = Add(50, 60);
+   return 0;
+}
+
+Destructors in C++
+
+A destructor is a special member function that works just opposite to constructor, constructors that are used for initializing an object, destructors destroy (or delete) the object.
+
+Syntax of Destructor
+~class_name()    
+{   
+   //Some code   
+}
+
+The destructor name should exactly match with the class name. A destructor declaration should always begin with the tilde(~) symbol.
+
+A destructor is automatically called when:
+1) The program finished execution.
+2) When a scope (the { } parenthesis) containing local variable ends.
+3) When you call the delete operator.
+
+#include <iostream>
+using namespace std;
+class HelloWorld{
+public:
+  //Constructor
+  HelloWorld(){
+    cout<<"Constructor is called"<<endl;
+  }
+  //Destructor
+  ~HelloWorld(){
+    cout<<"Destructor is called"<<endl;
+   }
+   //Member function
+   void display(){
+     cout<<"Hello World!"<<endl;
+   }
+};
+int main(){
+   //Object created
+   HelloWorld obj;
+   //Member function called
+   obj.display();
+   return 0;
+}
+
+Destructor rules
+1) Name should begin with tilde sign(~) and must match class name.
+2) There cannot be more than one destructor in a class.
+3) Unlike constructors that can have parameters, destructors do not allow any parameter.
+4) They do not have any return type, just like constructors.
+5) When you do not specify any destructor in a class, compiler generates a default destructor and inserts it into your code.
+
+Structures in C++
+
+Structure is a compound data type that contains different variables of different types. 
+
+For example, you want to store Student details like student name, student roll num, student age. You have two ways to do it, 
+one way is to create different variables for each data, but the downfall of this approach is that if you want to store the 
+details of multiple students, in that case it is not feasible to create separate set of variables for each student.
+
+The second and best way of doing it by creating a structure.
+
+struct Student{
+    char stuName[30];
+    int stuRollNo;
+    int stuAge;
+};
+
+Student s1, s2;
+
+s1.stuName = "xyz";
+
+s2.stuAge = 22;
+
+#include <iostream>
+using namespace std;
+struct Student{
+   char stuName[30];
+   int stuRollNo;
+   int stuAge;
+};
+int main(){
+   Student s;
+   cout<<"Enter Student Name: ";
+   cin.getline(s.stuName, 30);
+   cout<<"ENter Student Roll No: ";
+   cin>>s.stuRollNo;
+   cout<<"Enter Student Age: ";
+   cin>>s.stuAge;
+   cout<<"Student Record:"<<endl;
+   cout<<"Name: "<<s.stuName<<endl;
+   cout<<"Roll No: "<<s.stuRollNo<<endl;
+   cout<<"Age: "<<s.stuAge;
+   return 0;
+}
+
+How to pass structure as an argument to function
+#include <iostream>
+using namespace std;
+struct Student{
+   char stuName[30];
+   int stuRollNo;
+   int stuAge;
+};
+void printStudentInfo(Student);
+int main(){
+   Student s;
+   cout<<"Enter Student Name: ";
+   cin.getline(s.stuName, 30);
+   cout<<"Enter Student Roll No: ";
+   cin>>s.stuRollNo;
+   cout<<"Enter Student Age: ";
+   cin>>s.stuAge;
+   printStudentInfo(s);
+   return 0;
+}
+void printStudentInfo(Student s){
+   cout<<"Student Record:"<<endl;
+   cout<<"Name: "<<s.stuName<<endl;
+   cout<<"Roll No: "<<s.stuRollNo<<endl;
+   cout<<"Age: "<<s.stuAge;
+}
+
+How to return the Structure from a Function
+
+#include <iostream>
+using namespace std;
+struct Student{
+   char stuName[30];
+   int stuRollNo;
+   int stuAge;
+};
+Student getStudentInfo();
+void printStudentInfo(Student);
+int main(){
+   Student s;
+   s = getStudentInfo();
+   printStudentInfo(s);
+   return 0;
+}
+/* This function prompt the user to input student
+ * details, stores them in structure members
+ * and returns the structure
+ */
+Student getStudentInfo(){
+   Student s;
+   cout<<"Enter Student Name: ";
+   cin.getline(s.stuName, 30);
+   cout<<"Enter Student Roll No: ";
+   cin>>s.stuRollNo;
+   cout<<"Enter Student Age: ";
+   cin>>s.stuAge;
+   return s;
+}
+void printStudentInfo(Student s){
+   cout<<"Student Record:"<<endl;
+   cout<<"Name: "<<s.stuName<<endl;
+   cout<<"Roll No: "<<s.stuRollNo<<endl;
+}
+
+Enumeration in C++
+
+Enum is a user defined data type where we specify a set of values for a variable and the variable can only
+take one out of a small set of possible values. Use enum keyword to define a Enumeration.
+
+enum subject {LBEPS, C, C++, JAVA} sub;
+
+#include<iostream>
+using namespace std;
+enum subject {LBEPS, C, C++, JAVA} sub;
+int main()
+{
+   sub = JAVA;
+   cout<<sub;
+   return 0;
+}
+
+#include <iostream>
+using namespace std;
+enum subject {LBEPS, C, C++, JAVA};
+int main(){
+   subject sub;
+   sub = C++; 
+   cout<< sub;   
+   return 0;
+}
+
+if we try to assign a another random value to this variable, it will throw a compilation error. This increases compile-time checking and avoid errors that occurs by passing in invalid constants.
+
+#include <iostream>
+using namespace std;
+enum report {Test1=11, Test2=22, Test3=33, Test4=44};
+int main(){
+   report rpt;
+   rpt = Test3;
+   cout<<rpt; 
+   return 0;
+}
+
+Inheritance in C++
+
+Inheritance is one of the feature of Object Oriented Programming System(OOPs), it allows the child class to acquire the properties (the data members) and functionality (the member functions) of parent class.
+
+Syntax of Inheritance
+class parent_class
+{
+    //Body of parent class
+};
+class child_class : access_modifier parent_class
+{
+   //Body of child class
+};
+
+The main advantages of inheritance are code reusability and readability. When child class inherits the properties and functionality of parent class, we need not to write the same code again in child class. This makes it easier to reuse the code, makes us write the less code and the code becomes much more readable.
+
+#include <iostream>
+using namespace std;
+class Teacher {
+public:
+  Teacher(){
+    cout<<"Hey Guys, I am a teacher"<<endl;
+  }
+  string collegeName = "CQS";
+};
+//This class inherits Teacher class
+class IT : public Teacher {
+public:
+  IT(){
+    cout<<"I am a IT Teacher"<<endl;
+  }
+  string mainSub = "IT";
+  string name = "XYZ";
+};
+int main() {
+  IT obj;
+  cout<<"Name: "<<obj.name<<endl;
+  cout<<"College Name: "<<obj.collegeName<<endl;
+  cout<<"Main Subject: "<<obj.mainSub<<endl;
+  return 0;
+}
+
+Types of Inheritance in C++
+1) Single inheritance
+2) Multilevel inheritance
+3) Multiple inheritance
+4) Hierarchical inheritance
+5) Hybrid inheritance
+
+Single inheritance
+In Single inheritance one class inherits one class exactly.
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  A(){
+     cout<<"Constructor of A class"<<endl;
+  }
+};
+class B: public A {
+public:
+  B(){
+     cout<<"Constructor of B class";
+  }
+};
+int main() {
+   //Creating object of class B
+   B obj;
+   return 0;
+}
+
+Multilevel Inheritance
+In this type of inheritance one class inherits another child class.
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  A(){
+     cout<<"Constructor of A class"<<endl;
+  }
+};
+class B: public A {
+public:
+  B(){
+     cout<<"Constructor of B class"<<endl;
+  }
+};
+class C: public B {
+public:
+  C(){
+     cout<<"Constructor of C class"<<endl;
+  }
+};
+int main() {
+  //Creating object of class C
+  C obj;
+  return 0;
+}
+
+Multiple Inheritance
+In multiple inheritance, a class can inherit more than one class. This means that in this type of inheritance a single child class can have multiple parent classes.
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  A(){
+     cout<<"Constructor of A class"<<endl;
+  }
+};
+class B {
+public:
+  B(){
+     cout<<"Constructor of B class"<<endl;
+  }
+};
+class C: public A, public B {
+public:
+  C(){
+     cout<<"Constructor of C class"<<endl;
+  }
+};
+int main() {
+   //Creating object of class C
+   C obj;
+   return 0;
+}
+
+Hierarchical Inheritance
+In this type of inheritance, one parent class has more than one child class. 
+Class B and C inherits class A
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  A(){
+     cout<<"Constructor of A class"<<endl;
+  }
+};
+class B: public A {
+public:
+  B(){ 
+     cout<<"Constructor of B class"<<endl;
+  }
+};
+class C: public A{
+public:
+  C(){
+     cout<<"Constructor of C class"<<endl;
+  }
+};
+int main() {
+   //Creating object of class C
+   C obj;
+   return 0;
+}
+
+Hybrid Inheritance
+
+Hybrid inheritance is a combination of more than one type of inheritance. For example, A child and parent class relationship that follows multiple and hierarchical inheritance both can be called hybrid inheritance.
+
+
+
+Polymorphism
+Polymorphism is a feature of OOPs that allows the object to behave differently in different conditions. In C++ 
+we have two types of polymorphism:
+1) Compile time Polymorphism – This is also known as static (or early) binding.
+2) Runtime Polymorphism – This is also known as dynamic (or late) binding.
+
+Compile time Polymorphism
+Function overloading and Operator overloading are perfect example of Compile time polymorphism.
+
+#include <iostream>
+using namespace std;
+class Add {
+public:
+  int sum(int num1, int num2){
+     return num1+num2;
+  }
+  int sum(int num1, int num2, int num3){
+     return num1+num2+num3;
+  }
+};
+int main() {
+  Add obj;
+  //This will call the first function
+  cout<<"Output: "<<obj.sum(10, 20)<<endl;
+  //This will call the second function
+  cout<<"Output: "<<obj.sum(11, 22, 33);
+  return 0;
+}
+
+Runtime Polymorphism
+Function overriding is an example of Runtime polymorphism.
+Function Overriding: When child class declares a method, which is already present in the parent class then this is called 
+function overriding, here child class overrides the parent class.
+
+#include <iostream>
+using namespace std;
+class A {
+public:
+  void disp(){
+     cout<<"Super Class Function"<<endl;
+  }
+};
+class B: public A{
+public:
+  void disp(){
+     cout<<"Sub Class Function";
+  }
+};
+int main() {
+  //Parent class object
+  A obj;
+  obj.disp();
+  //Child class object
+  B obj2;
+  obj2.disp();
+  return 0;
+}
+
+Function overloading
+Function overloading is a feature that allows us to have more than one function having same name but
+different parameter list, it means the data type and sequence of the parameters. Function overloading 
+is a compile-time polymorphism.
+
+#include <iostream>
+using namespace std;
+class Addition {
+public:
+    int sum(int num1,int num2) {
+        return num1+num2;
+    }
+    int sum(int num1,int num2, int num3) {
+       return num1+num2+num3;
+    }
+};
+int main(void) {
+    Addition obj;
+    cout<<obj.sum(20, 15)<<endl;
+    cout<<obj.sum(81, 100, 10);
+    return 0;
+}
+
+The functions having different return types and same parameter list cannot be overloaded. However if the 
+functions have different parameter list then they can have same or different return types to be eligible 
+for overloading. In short the return type of a function does not play any role in function overloading. 
+All that matters is the parameter list of function.
+
+#include <iostream>
+using namespace std;
+class DemoClass {
+public:
+    int demoFunction(int i) {
+        return i;
+    }
+    double demoFunction(double d) {
+        return d;
+    }
+};
+int main(void) {
+    DemoClass obj;
+    cout<<obj.demoFunction(100)<<endl;
+    cout<<obj.demoFunction(5005.516);
+   return 0;
+}
+
+The main advantage of function overloading is to the improve the code readability and allows code reusability.
+
+Function Overriding
+
+Function overriding is a feature that allows us to have a same function in child class which is already present in the parent class. It is like creating a new version of an old function, in the child class.
+
+To override a function you must have the same signature in child class. By signature it mean the data type and sequence of parameters. Here we don’t have any parameter in the parent function so we didn’t use any parameter in the child function.
+
+#include <iostream>
+using namespace std;
+class BaseClass {
+public:
+   void disp(){
+      cout<<"Function of Parent Class";
+   }
+};
+class DerivedClass: public BaseClass{
+public:
+   void disp() {
+      cout<<"Function of Child Class";
+   }
+};
+int main() {
+   DerivedClass obj = DerivedClass();
+   obj.disp();
+   return 0;
+}
+
+In function overriding, the function in parent class is called the overridden function and function in child class is called overriding function.
+
+#include <iostream>
+using namespace std;
+class BaseClass {
+public:
+   void disp(){
+      cout<<"Function of Parent Class";
+   }
+};
+class DerivedClass: public BaseClass{
+public:
+   void disp() {
+      cout<<"Function of Child Class";
+   }
+};
+int main() {
+   /* Reference of base class pointing to
+    * the object of child class.
+    */
+   BaseClass obj = DerivedClass(); 
+   obj.disp();
+   return 0;
+}
+
+If you want to call the Overridden function from overriding function then you can do it like this:
+
+parent_class_name::function_name
+To do this in the above example, we can write following statement in the disp() function of child class:
+
+BaseClass::disp();
+
+
+Difference between function overloading and function overriding?
+
+
+Virtual Functions
+
+#include<iostream>
+using namespace std;
+//Parent class or super class or base class
+class Subject{
+public:
+   virtual void sub(){
+      cout<<"This is a generic Function";
+   }
+};
+//child class or sub class or derived class
+class IT : public Subject{
+public:
+   void sub(){ 
+      cout<<"IT";
+   }
+};
+int main(){
+   Subject *obj;
+   obj = new IT();
+   obj->sub();
+   return 0;
+}
+
+Access Modifiers in c++
+
+There are 3 types of access modifiers available in C++: 
+
+Public
+Private
+Protected
+
+ 1. Public: All the class members declared under the public specifier will be available to everyone. The data members and member functions declared as public can be accessed by other classes and functions too. The public members of a class can be accessed from anywhere in the program using the direct member access operator (.) with the object of that class. 
+
+#include<iostream>
+using namespace std;
+class Circle{
+    public:
+        double radius;
+         
+        double  compute_area()
+        {
+            return 3.14*radius*radius;
+        }
+     
+};
+int main(){
+    Circle obj;
+     
+    // accessing public datamember outside class
+    obj.radius = 5.5;
+     
+    cout << "Radius is: " << obj.radius << "\n";
+    cout << "Area is: " << obj.compute_area();
+    return 0;
+}
+
+2. Private: The class members declared as private can be accessed only by the member functions inside the class. They are not allowed to be accessed directly by any object or function outside the class. Only the member functions or the friend functions are allowed to access the private data members of the class. 
+
+#include<iostream>
+using namespace std;
+class Circle{  
+    // private data member
+    private:
+        double radius;
+      
+    // public member function   
+    public:   
+        double  compute_area()
+        {   // member function can access private
+            // data member radius
+            return 3.14*radius*radius;
+        }
+     
+};
+int main(){  
+    // creating object of the class
+    Circle obj;
+     
+    // trying to access private data member
+    // directly outside the class
+    obj.radius = 1.5;
+     
+    cout << "Area is:" << obj.compute_area();
+    return 0;
+}
+
+#include<iostream>
+using namespace std;
+class Circle{  
+    // private data member
+    private:
+        double radius;
+      
+    // public member function   
+    public:   
+        void compute_area(double r)
+        {   // member function can access private
+            // data member radius
+            radius = r;
+             
+            double area = 3.14*radius*radius;
+             
+            cout << "Radius is: " << radius << endl;
+            cout << "Area is: " << area;
+        }
+     
+};
+int main(){  
+    // creating object of the class
+    Circle obj;
+     
+    // trying to access private data member
+    // directly outside the class
+    obj.compute_area(1.5);
+     
+     
+    return 0;
+}
+
+3. Protected: The protected access modifier is similar to the private access modifier in the sense that it can’t be accessed outside of its class unless with the help of a friend class. The difference is that the class members declared as Protected can be accessed by any subclass (derived class) of that class as well. 
+
+#include <iostream>
+using namespace std;
+// base class
+class Parent
+{  
+    // protected data members
+    protected:
+    int id_protected;
+    
+};
+// sub class or derived class from public base class
+class Child : public Parent
+{
+    public:
+    void setId(int id)
+    {
+         
+        // Child class is able to access the inherited
+        // protected data members of base class
+         
+        id_protected = id;
+         
+    }
+     
+    void displayId()
+    {
+        cout << "id_protected is: " << id_protected << endl;
+    }
+};
+ 
+// main function
+int main() {  
+    Child obj1;
+    // member function of the derived class can
+    // access the protected data members of the base class
+     
+    obj1.setId(81);
+    obj1.displayId();
+    return 0;
+}
+
+
+
+
+Encapsulation in c++
+
+Encapsulation is a process of combining data members and functions in a single unit called class. This is to prevent the access to the data directly, the access to them is provided through the functions of the class. It is one of the popular feature of Object Oriented Programming(OOPs) that helps in data hiding.
+
+To do this:
+1) Make all the data members private.
+2) Create public setter and getter functions for each data member in such a way that the set function set the value of data member and get function get the value of data member.
+
+#include<iostream>
+using namespace std;
+class Encap{
+private:
+   /* Since we have marked these data members private,
+    * any entity outside this class cannot access these
+    * data members directly, they have to use getter and
+    * setter functions.
+    */
+   int num;
+   char ch;
+public:
+   /* Getter functions to get the value of data members.
+    * Since these functions are public, they can be accessed
+    * outside the class, thus provide the access to data members
+    * through them
+    */
+   int getNum() const {
+      return num;
+   }
+   char getCh() const {
+      return ch;
+   }
+   /* Setter functions, they are called for assigning the values
+    * to the private data members.
+    */
+   void setNum(int num) {
+      this->num = num;
+   }
+   void setCh(char ch) {
+      this->ch = ch;
+   }
+};
+int main(){
+   Encap obj;
+   obj.setNum(100);
+   obj.setCh('A');
+   cout<<obj.getNum()<<endl;
+   cout<<obj.getCh()<<endl;
+   return 0;
+}
+
+Abstraction
+Abstraction is one of the feature of Object Oriented Programming, where you show only relevant details to the user and hide irrelevant details.
+
+#include <iostream>
+using namespace std;
+class Abstraction{
+private:
+   /* By making these data members private, I have
+    * hidden them from outside world.
+    * These data members are not accessible outside
+    * the class. The only way to set and get their
+    * values is through the public functions.
+    */
+   int num;
+   char ch;
+
+public:
+   void setMyValues(int n, char c) {
+      num = n; ch = c;
+   }
+   void getMyValues() {
+      cout<<"Numbers is: "<<num<< endl;
+      cout<<"Char is: "<<ch<<endl;
+   }
+};
+int main(){
+   Abstraction obj;
+   obj.setMyValues(100, 'X');
+   obj.getMyValues();
+   return 0;
+}
+
+Advantage
+The major advantage of using this feature is that when the code evolves and you need to make some adjustments in the code then you only need to modify the high level class where you have declared the members as private. Since none class is accessing these data members directly, you do not need to change the low level(user level) class code.
+
+1) Makes the application secure by making data private and avoiding the user level error that may corrupt the data.
+2) This avoids code duplication and increases the code reusability.
+
+
+
+Interfaces in C++: Abstract Class
+A class with pure virtual function is known as abstract class. 
+
+virtual void fun() = 0;
+
+A pure virtual function is marked with a virtual keyword and has = 0 after its signature. We can call this function an abstract 
+function as it has no body. The derived class must give the implementation to all the pure virtual functions of parent class 
+else it will become abstract class by default.
+
+#include<iostream>
+using namespace std;
+class IT{
+public:
+   //Pure Virtual Function
+   virtual void sub() = 0;
+
+   //Normal member Function
+   void course() {
+      cout<<"IT";
+   }
+};
+class CPP: public IT{
+public:
+   void sub() {
+      cout<<"C++"<<endl;
+   }
+};
+int main(){
+   CPP obj;
+   obj.sub();
+   obj.course();
+   return 0;
+}
+
+Rules of Abstract Class
+1) As we have seen that any class that has a pure virtual function is an abstract class.
+2) We cannot create the instance of abstract class. For example: If I have written this line IT obj; in the above program, 
+   it would have caused compilation error.
+3) We can create pointer and reference of base abstract class points to the instance of child class. For example, this is valid:
+
+IT *obj = new CPP();
+obj->sub();
+4) Abstract class can have constructors.
+5) If the derived class does not implement the pure virtual function of parent class then the derived class becomes abstract.
+
+Friend Class and Friend Functions
+
+Friend Class:
+A friend class is a class that can access the private and protected members of a class in which it is declared as friend. 
+This is needed when we want to allow a particular class to access the private and protected members of a class.
+
+#include <iostream>
+using namespace std;
+class XYZ {
+private:
+   char ch='A';
+   int num = 11;
+public:
+   /* This statement would make class ABC
+    * a friend class of XYZ, this means that
+    * ABC can access the private and protected
+    * members of XYZ class. 
+    */
+   friend class ABC;
+};
+class ABC {
+public:
+   void disp(XYZ obj){
+      cout<<obj.ch<<endl;
+      cout<<obj.num<<endl;
+   }
+};
+int main() {
+   ABC obj;
+   XYZ obj2;
+   obj.disp(obj2);
+   return 0;
+}
+
+Friend Function:
+Similar to friend class, this function can access the private and protected members of another class. A global function can also 
+be declared as friend
+
+#include <iostream>
+using namespace std;
+class XYZ {
+private:
+   int num=100;
+   char ch='Z';
+public:
+   friend void disp(XYZ obj);
+};
+//Global Function
+void disp(XYZ obj){
+   cout<<obj.num<<endl; 
+   cout<<obj.ch<<endl;
+}
+int main() {
+   XYZ obj;
+   disp(obj);
+   return 0;
+}
+
+Aggregation (HAS-A Relationship)
+aggregation is a process in which one class defines another class as any entity reference. It is another way to reuse the class. 
+It is a form of association that represents HAS-A relationship.
+
+#include <iostream>  
+using namespace std;  
+class Address {  
+    public:  
+   string addressLine, city, state;    
+     Address(string addressLine, string city, string state)    
+    {    
+        this->addressLine = addressLine;    
+        this->city = city;    
+        this->state = state;    
+    }    
+};  
+class Student    
+    {    
+        private:  
+        Address* address;  //Student HAS-A Address   
+        public:  
+        int id;    
+        string name;    
+        Student(int id, string name, Address* address)    
+       {    
+           this->id = id;    
+           this->name = name;    
+           this->address = address;    
+       }    
+     void display()    
+       {    
+           cout<<id <<" "<<name<< " "<<address->addressLine<< " "<< address->city<< " "<<address->state<<endl;    
+       }    
+   };   
+int main(void) {  
+    Address a1= Address("C-146, Sec-15","Noida","UP");    
+    Student obj = Student(101,"XYZ",&a1);    
+            obj.display();   
+   return 0;  
+}
+
+
+
+
+
+
+
+
+
+
+

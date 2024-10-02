@@ -1,0 +1,106 @@
+Pointers in C++
+
+Pointer is a variable in C++ that holds the address of another variable. They have data type just like variables, an integer type pointer can hold the address of an integer variable and an character type pointer can hold the address of char variable.
+
+Syntax of pointer
+data_type *pointer_name;
+
+How to declare a pointer?
+int *p, var;
+
+Assignment
+To assign the address of variable to pointer use ampersand symbol (&).
+p = &var;
+
+// This will print the address of variable var
+cout<<&var;    
+
+/* This will also print the address of variable
+ * var because the pointer p holds the address of var
+ */
+cout<<p;    
+
+/* This will print the value of var, This is 
+ * important, this is how we access the value of
+ * variable through pointer
+*/
+cout<<*p; 
+
+#include <iostream>
+using namespace std;
+int main(){
+   //Pointer declaration
+   int *p, var=10;
+   //Assignment
+   p = &var;
+   cout<<"Address of var: "<<&var<<endl;
+   cout<<"Address of var: "<<p<<endl;
+   cout<<"Address of p: "<<&p<<endl;
+   cout<<"Value of var: "<<*p;
+   return 0;
+}
+
+Pointer and arrays
+First and very important point to note regarding arrays is that the array name alone represents the base address of array so while assigning the address of array to pointer don’t use ampersand sign(&). 
+Correct: Because arr represent the address of array.
+p = arr;
+p = &arr;( incorrect)
+
+#include <iostream>
+using namespace std;
+int main(){
+   //Pointer declaration
+   int *p;
+   //Array declaration
+   int arr[]={1, 2, 3, 4, 5, 6};
+   //Assignment
+   p = arr;
+   for(int i=0; i<6;i++){
+     cout<<*p<<endl;
+     //++ moves the pointer to next int position
+     p++;
+   }
+   return 0;
+}
+
+How to increment pointer address and pointer’s value?
+
+// Pointer moves to the next int position
+p++; 
+// Pointer moves to the next int position
+++p;   
+
+/* All the three cases are same they increment the value 
+ * of variable that the pointer p points.
+ */
+++*p;   
+++(*p); 
+++*(p);
+
+C++ ‘this’ Pointer
+The this pointer holds the address of current object, this pointer points to the current object of the class.
+
+#include <iostream>
+using namespace std;
+class Demo {
+private:
+  int num;
+  char ch;
+public:
+  void setMyValues(int num, char ch){
+    this->num =num;
+    this->ch=ch;
+  }
+  void displayMyValues(){
+    cout<<num<<endl;
+    cout<<ch;
+  }
+};
+int main(){
+  Demo obj;
+  obj.setMyValues(100, 'A');
+  obj.displayMyValues();
+  return 0;
+}
+
+

@@ -1,0 +1,10 @@
+Tokens are the smallest individual units in a program. A C++ program is written using tokens. It has the following tokens:
+
+Identifiers( are names given to different entries such as variables, structures, and functions)
+Constants( their value never changes during execution once defined)
+Variable( Its value can be changed during execution once defined)
+Data Type( specifies the type of data that a variable can store)
+Keywords( A keyword is a reserved word, which have some meaning and also have some funtion)
+Operators( An operator is simply a symbol that is used to perform operations. )
+Strings( array of character)
+Punctuators( have syntactic and semantic meaning to the compiler)

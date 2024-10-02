@@ -1,0 +1,256 @@
+1. Length and breadth of a rectangle are 10 and 5 respectively. Write a program to calculate the area and perimeter of the rectangle.
+
+2. Write a program to input the value of the radius of a circle from keyboard and then calculate its perimeter and area.
+
+3. Enter two numbers from keyboard. Write a program to check if the two numbers are equal.
+
+
+
+1.
+#include <iostream>
+int main(){
+	using namespace std;
+	cout << "Area is " << 10*5 << endl;
+	cout << "Perimeter is " << 2*(10+5) << endl;
+	return 0;
+}
+
+2.
+#include <iostream>
+int main(){
+	using namespace std;
+	int radius;
+	cout << "Enter radius of circle" << endl;
+	cin >> radius;
+	cout << "Perimeter is " << 2*3.14*radius << endl;
+	cout << "Area is " << 3.14*radius*radius << endl;
+	return 0;
+}
+
+3.
+#include<iostream>
+int main(){
+	using namespace std;
+	int x,y;
+	cin>>x;
+	cin>>y;
+	cout<<(x==y)<<endl;
+	return 0;
+}
+
+
+
+..........................................................................................................................................................
+
+
+1. Write a program to swap the values of two number if values of both variables are not the same using if-else statement.
+
+eg: a=10 && b=20 then output is a=20 && b=10
+
+2. Write a C++ program to find the largest of three numbers
+ 
+eg: 1st no. : 10, 2nd no. : 20, 3rd no. : 15 then output is 2nd no is greatest
+
+3. Write a C++ program to read marks of three subjects and calculate the total, percentage.
+
+4. Write a program in C++ to read any day number in integer and display day name in the word.
+
+5. Write a program in C++ to read any digit, display in the word (0-9 only)
+
+6. Write a program in C++ to read any Month Number in integer and display Month name in the word.
+
+1.
+#include<iostream>
+using namespace std;
+int main(){
+	int a=10, b=20;
+	cout<<"The value of a"<<a<<endl;
+	cout<<"The value of b"<<b<<endl;
+	if(a==b){
+		cout<<"both are equal";
+	}
+	else{
+		a=a+b;
+		b=a-b;
+		a=a-b;
+		cout<<"The value of a"<<a<<endl;
+		cout<<"The value of b"<<b<<endl;
+	}
+}
+
+2.
+#include<iostream>
+using namespace std;
+int main(){
+	int a=10, b=20, c=15;
+	if(a>b){
+		if(b>c){
+			cout<<"a is greatest"<<endl;
+		}
+		else if(c>b){
+			if(c>a){
+				cout<<"c is greatest"<<endl;
+			}
+		}
+	}
+	else{
+		cout<<"b is greatest"<<endl;
+	}
+}
+
+3.
+#include<iostream>
+using namespace std;
+int main(){
+	int a,b,c, total;
+	float per;
+	cout<<"Enter the value of 1st subject"<<endl;
+	cin>>a;
+	cout<<"Enter the value of 2st subject"<<endl;
+	cin>>b;
+	cout<<"Enter the value of 3st subject"<<endl;
+	cin>>c;
+	total = a+b+c;
+	cout<<total<<endl;
+	per=(total/300.0)*100;
+	cout<<per<<endl;
+}
+
+4.
+#include<iostream>
+using namespace std;
+int main(){
+	int day;
+	cout<<"Enter day in int"<<endl;
+	cin>>day;
+	
+	switch(day){
+		case 1:
+			cout<<"Monday";
+		break;
+		case 2:
+			cout<<"Tuesday";
+		break;
+		case 3:
+			cout<<"Wednesday";
+		break;
+		case 4:
+			cout<<"Thursday";
+		break;
+		case 5:
+			cout<<"Friday";
+		break;
+		case 6:
+			cout<<"Saturday";
+		break;
+		case 7:
+			cout<<"Sunday";
+		break;
+		default:
+			cout<<"Invalid input";
+	}
+}
+
+5.
+#include<iostream>
+using namespace std;
+int main(){
+	int day;
+	cout<<"Enter Number in int"<<endl;
+	cin>>day;
+	
+	switch(day){
+		case 1:
+			cout<<"One";
+		break;
+		case 2:
+			cout<<"Two";
+		break;
+		case 3:
+			cout<<"Three";
+		break;
+		case 4:
+			cout<<"Four";
+		break;
+		case 5:
+			cout<<"Five";
+		break;
+		case 6:
+			cout<<"Six";
+		break;
+		case 7:
+			cout<<"Seven";
+		break;
+		case 8:
+			cout<<"Eight";
+		break;
+		case 9:
+			cout<<"Nine";
+		break;
+		case 0:
+			cout<<"Zero";
+		break;
+		default:
+			cout<<"Invalid input";
+	}
+}
+
+6.
+#include<iostream>
+using namespace std;
+int main(){
+	int day;
+	cout<<"Enter Month in int"<<endl;
+	cin>>day;
+	
+	switch(day){
+		case 1:
+			cout<<"January";
+		break;
+		case 2:
+			cout<<"February";
+		break;
+		case 3:
+			cout<<"March";
+		break;
+		case 4:
+			cout<<"April";
+		break;
+		case 5:
+			cout<<"May";
+		break;
+		case 6:
+			cout<<"June";
+		break;
+		case 7:
+			cout<<"July";
+		break;
+		case 8:
+			cout<<"August";
+		break;
+		case 9:
+			cout<<"September";
+		break;
+		case 10:
+			cout<<"October";
+		break;
+		case 11:
+			cout<<"November";
+		break;
+		case 12:
+			cout<<"December";
+		break;
+		default:
+			cout<<"Invalid input";
+	}
+}
+
+
+
+
+
+
+
+
+
+

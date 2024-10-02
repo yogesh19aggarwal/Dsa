@@ -1,0 +1,101 @@
+C++ Exception Handling
+Exception Handling in C++ is a process to handle runtime errors. We perform exception handling so the normal flow of the application can be maintained even after runtime errors. Exception is an event or object which is thrown at runtime. All exceptions are derived from std::exception class. It is a runtime error which can be handled. If we don't handle the exception, it prints exception message and terminates the program.
+
+Advantage
+It maintains the normal flow of the application. In such case, rest of the code is executed even after exception.
+
+3 keywords to perform exception handling:
+try
+catch
+throw
+
+try/catch
+
+exception handling is performed using try/catch statement. The C++ try block is used to place the code that may occur exception. The catch block is used to handle the exception.
+
+#include <iostream>  
+using namespace std;  
+float division(int x, int y) {  
+   return (x/y);  
+}  
+int main () {  
+   int i = 50;  
+   int j = 0;  
+   float k = 0;  
+      k = division(i, j);  
+      cout << k << endl;  
+   return 0;  
+}  
+
+
+#include <iostream>  
+using namespace std;  
+float division(int x, int y) {  
+   if( y == 0 ) {  
+      throw "Attempted to divide by zero!";  
+   }  
+   return (x/y);  
+}  
+int main () {  
+   int i = 25;  
+   int j = 0;  
+   float k = 0;  
+   try {  
+      k = division(i, j);  
+      cout << k << endl;  
+   }catch (const char* e) {  
+      cerr << e << endl;  
+   }  
+   return 0;  
+}
+
+User-Defined Exceptions
+( std::exception class is used to define the exception.)
+The new exception can be defined by overriding and inheriting exception class functionality.
+
+#include <iostream>  
+#include <exception>  
+using namespace std;  
+class MyException : public exception{  
+    public:  
+        const char * what() const throw()  
+        {  
+            return "Attempted to divide by zero!\n";  
+        }  
+};  
+int main()  
+{  
+    try  
+    {  
+        int x, y;  
+        cout << "Enter the two numbers : \n";  
+        cin >> x >> y;  
+        if (y == 0)  
+        {  
+            MyException z;  
+            throw z;  
+        }  
+        else  
+        {  
+            cout << "x / y = " << x/y << endl;  
+        }  
+    }  
+    catch(exception& e)  
+    {  
+        cout << e.what();  
+    }  
+} 
+
+Note: In above example what() is a public method provided by the exception class. It is used to return the cause of an exception.
+
+
+
+
+
+
+
+
+
+
+
+

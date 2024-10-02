@@ -1,0 +1,97 @@
+C++ BREAK STATEMENT
+
+is used to break loop or switch statement. It breaks the current flow of the program at the given condition.
+
+jump-statement;      
+break;  
+
+#include <iostream>  
+using namespace std;  
+int main() {  
+      for (int i = 1; i <= 10; i++)    
+          {    
+              if (i == 3)    
+              {    
+                  break;    
+              }    
+        cout<<i<<"\n";    
+          }    
+}  
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+    for(int i=1;i<=3;i++){        
+            for(int j=1;j<=3;j++){        
+                if(i==2&&j==2){        
+                    break;        
+                        }        
+                    cout<<i<<" "<<j<<"\n";             
+                    }        
+          }    
+}  
+
+
+C++ CONTINUE STATEMENT
+
+is use to continue loop. It continue the current flow of the program and skip the remaining code at specified condition.
+
+jump-statement;      
+continue; 
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+     for(int i=1;i<=10;i++){      
+            if(i==3){      
+                continue;      
+            }      
+            cout<<i<<"\n";      
+        }        
+} 
+
+
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+ for(int i=1;i<=3;i++){        
+            for(int j=1;j<=3;j++){        
+             if(i==2&&j==2){        
+                continue;        
+                        }        
+                cout<<i<<" "<<j<<"\n";                  
+                    }        
+            }            
+}  
+
+C++ goto STATEMENT( jump statement)
+
+is used to transfer control to the other part of the program. It unconditionally jumps to the specified label.
+
+label is an identifier. When goto label; is encountered, the control of program jumps to label: and executes the code below it.
+
+#include <iostream>  
+using namespace std;  
+int main()  
+{  
+ineligible:    
+         cout<<"You are not eligible to vote!\n";    
+      cout<<"Enter your age:\n";    
+      int age;  
+      cin>>age;  
+      if (age < 18){    
+              goto ineligible;    
+      }    
+      else    
+      {    
+              cout<<"You are eligible to vote!";     
+      }         
+}  
+
+
+
+

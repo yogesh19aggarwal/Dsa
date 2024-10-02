@@ -1,0 +1,39 @@
+Identifiers
+Identifiers are names given to different entries such as variables, structures, and functions. Also, identifier names should have to be unique because these entities are used in the execution of the program.
+
+Identifier naming conventions
+
+Names can contain letters, digits and underscores
+Names must begin with a letter or an underscore (_)
+Names are case sensitive (myVar and myvar are different variables)
+Names cannot contain whitespaces or special characters like !, #, %, etc.
+Reserved words (like C++ keywords, such as int) cannot be used as names
+
+
+Constants
+Constants are like a variable, except that their value never changes during execution once defined.
+
+There are two other different ways to define constants in C++. These are:
+
+By using const keyword
+By using #define preprocessor
+
+Declaration of a constant :
+const [data_type] [constant_name]=[value];
+
+Reserved words are all those words that have a strictly predefined meaning—they are reserved for special use and cannot be used for any other purpose.
+
+A keyword is a reserved word, cannot use it as a variable name, constant name etc. A list of 32 Keywords in C++ Language
+
+asm	double	new	switch
+auto	else	operator	template
+break	enum	private	this
+case	extern	protected	throw
+catch	float	public	try
+char	for	register	typedef
+class	friend	return	union
+const	goto	short	unsigned
+continue	if	signed	virtual
+default	inline	sizedof	void
+delete	int	static	volatile 
+do	long	struct	while 

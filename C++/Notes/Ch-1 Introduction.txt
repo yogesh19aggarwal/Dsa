@@ -1,0 +1,25 @@
+C++ LANGUAGE
+
+-> was developed Bjarne Stroustrup in 1979
+-> was developed by adding a feature of OOP in C language
+-> is superset of C/ extension of C language
+
+FEATURES OF C++
+->Simple(bcoz it provides structured approach)
+->Abstract Data types(Abstract Data Type(ADT) is a data type, where only behavior is defined but not implementation)
+->Portable( Machine Independent)
+->Mid-level programming language( bcoz it binds the low-level & high-level programming language)
+->Rich Library( provide a lot of inbuilt functions that make the development fast)
+->Memory Management( various memory management operators to save memory and improve the program's efficiency)
+->Pointers( can directly interact with the memory by using the pointers)
+->Recursion( can call the function within the function)
+->Object-Oriented( it makes development and maintenance easier)
+->Compiler based( first, need to compile using a compiler and then execution)
+->Reusability( as the existing code can be reused)
+->Errors are easily detected( provide a feature called exception handling)
+->Strongly typed language( funtion call is typed checked during compilation)
+->Redefine Existing Operators( to redefine the meaning of existing operators)
+
+
+
+

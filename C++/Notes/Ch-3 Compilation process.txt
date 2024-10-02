@@ -1,0 +1,32 @@
+C++ compilation works to understand how programs are compiled and executed. Compiling C++ source code into machine-readable code consists of the following four processes:
+
+1. Preprocessing the source code.
+
+2. Compiling the source code.
+
+3. Assembling the compiled file.
+
+4. Linking the object code file to create an executable file.
+
+1. Pre-processing
+Preprocessing which includes the headers (#include) and expands the macros (#define).
+
+cpp hello.cpp > hello.i
+The resultant intermediate file "hello.i" contains the expanded source code.
+
+2. Compilation
+The compiler compiles the pre-processed source code into assembly code for a specific processor.
+
+gcc -S hello.i
+The -S option specifies to produce assembly code, instead of object code. The resultant assembly file is "hello.s".
+
+3. Assembly
+The assembler (as.exe) converts the assembly code into machine code in the object file "hello.o".
+
+as -o hello.o hello.s
+
+4. Linker
+Finally, the linker (ld.exe) links the object code with the library code to produce an executable file "hello.exe".
+
+    ld -o hello hello.o ...libraries...
+

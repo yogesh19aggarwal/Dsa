@@ -1,0 +1,41 @@
+While loop
+
+while loop is used to iterate a part of the program several times. If the number of iteration is not fixed, it is recommended to use while loop than for loop.
+
+while(condition){    
+//code to be executed    
+}    
+
+#include <iostream>  
+using namespace std;  
+int main() {         
+ int i=1;      
+         while(i<=5) {      
+            cout<<i <<"\n";    
+            i++;  //i=i+1
+          }       
+    }  
+
+#include <iostream>  
+using namespace std;  
+int main () {  
+        int i=1;      
+          while(i<=3){    
+              int j = 1;    
+              while (j <= 3) {      
+            	cout<<i<<" "<<j<<"\n";      
+            	j++;  
+              }     
+              i++;  
+        }  
+    }  
+
+
+#include <iostream>  
+using namespace std;  
+int main () {  
+        while(true)  
+          {    
+                  cout<<"Infinitive While Loop";    
+          }    
+    }   
